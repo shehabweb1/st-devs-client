@@ -8,6 +8,8 @@ import Contact from "../pages/Contact";
 import AllBlogs from "../pages/AllBlogs";
 import AddBlog from "./../pages/AddBlog";
 import Register from "../pages/Register";
+import FeaturedBlogs from "./../pages/FeaturedBlogs";
+import Wishlist from "../pages/Wishlist";
 
 const router = createBrowserRouter([
 	{
@@ -20,12 +22,20 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
+				path: "/allBlogs",
+				element: <AllBlogs />,
+			},
+			{
+				path: "/featuredBlogs",
+				element: <FeaturedBlogs />,
+			},
+			{
 				path: "/addBlog",
 				element: <AddBlog />,
 			},
 			{
-				path: "/allBlogs",
-				element: <AllBlogs />,
+				path: "/wishlist",
+				element: <Wishlist />,
 			},
 			{
 				path: "/login",

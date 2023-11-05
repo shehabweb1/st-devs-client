@@ -1,7 +1,14 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserProviderContext } from "../authProvider/AuthProvider";
+import Swal from "sweetalert2";
+
 const Header = () => {
+	const { user, logOut } = useContext(UserProviderContext);
+
+	const navigate = useNavigate();
+
 	const [theme, setTheme] = useState(
 		localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
 	);
@@ -19,6 +26,25 @@ const Header = () => {
 		document.querySelector("html").setAttribute("data-theme", localTheme);
 	}, [theme]);
 
+	const handleLogOut = () => {
+		logOut()
+			.then(() => {
+				navigate("/");
+				Swal.fire(
+					"Thank You!",
+					"Your account has been logout successful!",
+					"success"
+				);
+			})
+			.catch((error) => {
+				const errorMessage = error.message;
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: errorMessage,
+				});
+			});
+	};
 	const navItem = (
 		<>
 			<li>
@@ -28,11 +54,27 @@ const Header = () => {
 				<NavLink to="/allBlogs">All Blogs</NavLink>
 			</li>
 			<li>
-				<NavLink to="/about">About Us</NavLink>
+				<NavLink to="/featuredBlogs">Featured Blogs</NavLink>
 			</li>
-			<li>
-				<NavLink to="/contact">Contact Us</NavLink>
-			</li>
+			{user ? (
+				<>
+					<li>
+						<NavLink to="/addBlog">Add Blog</NavLink>
+					</li>
+					<li>
+						<NavLink to="/wishlist">Wishlist</NavLink>
+					</li>
+				</>
+			) : (
+				<>
+					<li>
+						<NavLink to="/about">About Us</NavLink>
+					</li>
+					<li>
+						<NavLink to="/contact">Contact Us</NavLink>
+					</li>
+				</>
+			)}
 		</>
 	);
 
@@ -71,29 +113,30 @@ const Header = () => {
 				<ul className="menu menu-horizontal px-1">{navItem}</ul>
 			</div>
 			<div className="navbar-end">
-				<Link to="/login" className="btn">
-					Login
-				</Link>
-
-				{/* <div className="dropdown dropdown-end">
-					<label tabIndex={1} className="btn btn-ghost btn-circle avatar">
-						<div className="w-10 rounded-full">
-							<img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-						</div>
-					</label>
-					<ul
-						tabIndex={1}
-						className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-					>
-						
-						<li>
-							<h3 className="text-xl">Sara Ali</h3>
-						</li>
-						<li>
-							<button>Logout</button>
-						</li>
-					</ul>
-				</div> */}
+				{user ? (
+					<div className="dropdown dropdown-end">
+						<label tabIndex={1} className="btn btn-ghost btn-circle avatar">
+							<div className="w-10 rounded-full">
+								<img src={user.photoURL} alt={user.displayName} />
+							</div>
+						</label>
+						<ul
+							tabIndex={1}
+							className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+						>
+							<li>
+								<h3 className="text-xl">{user.displayName}</h3>
+							</li>
+							<li>
+								<button onClick={handleLogOut}>Logout</button>
+							</li>
+						</ul>
+					</div>
+				) : (
+					<Link to="/login" className="btn">
+						Login
+					</Link>
+				)}
 
 				<button className="btn btn-ghost">
 					<label className="swap swap-rotate">
