@@ -5,8 +5,8 @@ import { Outlet } from "react-router-dom";
 const MainLayout = () => {
 	return (
 		<>
-			<Header />
 			<div className="container mx-auto">
+				<Header />
 				<Outlet />
 			</div>
 			<Footer />

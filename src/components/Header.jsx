@@ -1,5 +1,24 @@
 import { Link, NavLink } from "react-router-dom";
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
+import { useEffect, useState } from "react";
 const Header = () => {
+	const [theme, setTheme] = useState(
+		localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+	);
+
+	const handleToggle = (e) => {
+		if (e.target.checked) {
+			setTheme("dark");
+		} else {
+			setTheme("light");
+		}
+	};
+	useEffect(() => {
+		localStorage.setItem("theme", theme);
+		const localTheme = localStorage.getItem("theme");
+		document.querySelector("html").setAttribute("data-theme", localTheme);
+	}, [theme]);
+
 	const navItem = (
 		<>
 			<li>
@@ -75,6 +94,22 @@ const Header = () => {
 						</li>
 					</ul>
 				</div> */}
+
+				<button className="btn btn-ghost">
+					<label className="swap swap-rotate">
+						<input
+							type="checkbox"
+							onChange={handleToggle}
+							checked={theme === "light" ? false : true}
+						/>
+						<div className="swap-on">
+							<BsFillSunFill className="w-6 h-6" />
+						</div>
+						<div className="swap-off">
+							<BsFillMoonFill className="w-6 h-6" />
+						</div>
+					</label>
+				</button>
 			</div>
 		</div>
 	);
