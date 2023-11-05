@@ -1,8 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import Swal from "sweetalert2";
+import { UserProviderContext } from "../authProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import auth from "../firebase/firebase.config";
 
 const Register = () => {
+	const { createAccount, loginWithGoogle } = useContext(UserProviderContext);
+
+	const navigate = useNavigate();
+
 	const [password, setPassword] = useState("");
 	const [showError, setShowError] = useState(null);
 	const [isFormValid, setIsFormValid] = useState(false);
@@ -20,8 +28,6 @@ const Register = () => {
 			setShowError(null);
 		}
 
-		console.log(typeof inputPassword);
-
 		setIsFormValid(
 			inputPassword.length < 6 &&
 				!/[A-Z]/.test(inputPassword) &&
@@ -38,9 +44,68 @@ const Register = () => {
 
 	const handleRegister = (e) => {
 		e.preventDefault();
+		const form = new FormData(e.currentTarget);
+		const name = form.get("name");
+		const email = form.get("email");
+		const photo = form.get("photo");
+		const password = form.get("password");
+
+		createAccount(email, password)
+			.then((result) => {
+				if (result.insertedId) {
+					updateProfile(auth.currentUser, {
+						displayName: name,
+						photoURL: photo,
+					})
+						.then((result) => {
+							if (result) {
+								navigate("/");
+								Swal.fire(
+									`Thank You ${name}!`,
+									"Your account has been created successful!",
+									"success"
+								);
+							}
+						})
+						.catch((error) => {
+							Swal.fire({
+								icon: "error",
+								title: "Oops...",
+								text: error.message,
+							});
+						});
+				}
+			})
+			.catch((error) => {
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: error.message,
+				});
+			});
 	};
 
-	const handleLoginWithGoogle = () => {};
+	const handleLoginWithGoogle = () => {
+		loginWithGoogle()
+			.then((result) => {
+				if (result) {
+					navigate("/");
+					Swal.fire(
+						"Thank You!",
+						"Your account has been login successful!",
+						"success"
+					);
+				}
+			})
+			.catch((error) => {
+				const errorMessage = error.message;
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: errorMessage,
+				});
+			});
+	};
 	return (
 		<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
 			<div className="flex items-center gap-5 lg:gap-0 flex-col lg:flex-row">

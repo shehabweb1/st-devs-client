@@ -1,12 +1,63 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { UserProviderContext } from "../authProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+	const { loginUser, loginWithGoogle } = useContext(UserProviderContext);
+
+	const navigate = useNavigate();
+	const location = useLocation();
+
 	const handleLogin = (e) => {
 		e.preventDefault();
+		const form = new FormData(e.currentTarget);
+		const email = form.get("email");
+		const password = form.get("password");
+
+		loginUser(email, password)
+			.then((userCredential) => {
+				if (userCredential.user) {
+					navigate(location?.state ? location.state : "/");
+					Swal.fire(
+						"Thank You!",
+						"Your account has been login successful!",
+						"success"
+					);
+				}
+			})
+			.catch((error) => {
+				const errorMessage = error.message;
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: errorMessage,
+				});
+			});
 	};
 
-	const handleLoginWithGoogle = () => {};
+	const handleLoginWithGoogle = () => {
+		loginWithGoogle()
+			.then((result) => {
+				if (result) {
+					navigate(location?.state ? location.state : "/");
+					Swal.fire(
+						"Thank You!",
+						"Your account has been login successful!",
+						"success"
+					);
+				}
+			})
+			.catch((error) => {
+				const errorMessage = error.message;
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: errorMessage,
+				});
+			});
+	};
 
 	return (
 		<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
