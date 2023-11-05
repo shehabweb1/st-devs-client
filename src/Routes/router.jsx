@@ -10,6 +10,7 @@ import AddBlog from "./../pages/AddBlog";
 import Register from "../pages/Register";
 import FeaturedBlogs from "./../pages/FeaturedBlogs";
 import Wishlist from "../pages/Wishlist";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
 	{
@@ -31,11 +32,19 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/addBlog",
-				element: <AddBlog />,
+				element: (
+					<PrivateRoutes>
+						<AddBlog />
+					</PrivateRoutes>
+				),
 			},
 			{
 				path: "/wishlist",
-				element: <Wishlist />,
+				element: (
+					<PrivateRoutes>
+						<Wishlist />
+					</PrivateRoutes>
+				),
 			},
 			{
 				path: "/login",
