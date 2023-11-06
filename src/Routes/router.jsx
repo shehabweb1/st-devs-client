@@ -11,6 +11,8 @@ import Register from "../pages/Register";
 import FeaturedBlogs from "./../pages/FeaturedBlogs";
 import Wishlist from "../pages/Wishlist";
 import PrivateRoutes from "./PrivateRoutes";
+import BlogDetails from "./../pages/BlogDetails";
+import UpdateBlog from "../pages/UpdateBlog";
 
 const router = createBrowserRouter([
 	{
@@ -31,10 +33,22 @@ const router = createBrowserRouter([
 				element: <FeaturedBlogs />,
 			},
 			{
+				path: "/blogDetails/:id",
+				element: <BlogDetails />,
+			},
+			{
 				path: "/addBlog",
 				element: (
 					<PrivateRoutes>
 						<AddBlog />
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: "/UpdateBlog/:id",
+				element: (
+					<PrivateRoutes>
+						<UpdateBlog />
 					</PrivateRoutes>
 				),
 			},

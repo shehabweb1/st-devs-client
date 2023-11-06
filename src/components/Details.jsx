@@ -5,7 +5,7 @@ const Details = () => {
 		<div>
 			<h1 className="text-3xl font-bold">Title</h1>
 			<div className="flex items-center gap-5 my-3">
-				<Link to="category/:name">
+				<Link to="/allBlogs/:category">
 					<button className="btn btn-primary">Category</button>
 				</Link>
 				<p className="text-lg font-semibold">4th November 2023</p>

@@ -1,19 +1,18 @@
-import Blogs from "../components/Blogs";
-import Categories from "../components/Categories";
+import Banner from "../components/Banner";
+import NewsLetter from "../components/NewsLetter";
+import RecentBlog from "../components/RecentBlog";
+import WhyChooseUs from "../components/WhyChooseUs";
+import OurPartners from "./../components/OurPartners";
 
 const Home = () => {
 	return (
-		<div className="flex flex-col md:flex-row gap-4 py-10">
-			<Categories />
-			<div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-				<Blogs />
-				<Blogs />
-				<Blogs />
-				<Blogs />
-				<Blogs />
-				<Blogs />
-			</div>
-		</div>
+		<>
+			<Banner />
+			<RecentBlog />
+			<WhyChooseUs />
+			<NewsLetter />
+			<OurPartners />
+		</>
 	);
 };
 
