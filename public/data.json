@@ -1,0 +1,146 @@
+[
+    {
+        "id": 1,
+        "category": "HTML",
+        "title": "An Introduction to HTML",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Learn the basics of HTML and how it structures web pages.",
+        "long_description": "HTML (Hypertext Markup Language) is the backbone of the web. In this article, we'll introduce you to HTML and its essential elements, helping you create the foundation for web development."
+    },
+    {
+        "id": 2,
+        "category": "CSS",
+        "title": "CSS Styling Techniques",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Explore various CSS styling techniques for modern web design.",
+        "long_description": "Cascading Style Sheets (CSS) are crucial for creating visually appealing websites. This article delves into different CSS styling techniques, from basic to advanced, to enhance your design skills."
+    },
+    {
+        "id": 3,
+        "category": "JavaScript",
+        "title": "Getting Started with JavaScript",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Get your foot in the door with JavaScript programming.",
+        "long_description": "JavaScript is the language that adds interactivity to web pages. This tutorial provides a beginner-friendly introduction to JavaScript, covering key concepts and examples to kickstart your coding journey."
+    },
+    {
+        "id": 4,
+        "category": "React",
+        "title": "Mastering React Components",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Learn how to build reusable and efficient React components.",
+        "long_description": "React is a popular JavaScript library for building user interfaces. This article dives deep into React components, teaching you how to create reusable and efficient components to enhance your web development projects."
+    },
+    {
+        "id": 5,
+        "category": "Next.js",
+        "title": "Server-Side Rendering with Next.js",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Explore the power of server-side rendering with Next.js.",
+        "long_description": "Next.js is a framework for building React applications with server-side rendering capabilities. This tutorial guides you through the process of implementing server-side rendering in your Next.js projects for improved performance."
+    },
+    {
+        "id": 6,
+        "category": "NodeJS",
+        "title": "Building RESTful APIs with Node.js",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Create RESTful APIs using Node.js and Express.",
+        "long_description": "Node.js is a versatile runtime for building server-side applications. This guide demonstrates how to build RESTful APIs using Node.js and the Express.js framework, enabling you to create powerful backend services."
+    },
+    {
+        "id": 7,
+        "category": "Express.js",
+        "title": "Routing and Middleware in Express.js",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Explore the concepts of routing and middleware in Express.js.",
+        "long_description": "Express.js is a web application framework for Node.js. This article covers the fundamentals of routing and middleware in Express, allowing you to create robust and organized web applications."
+    },
+    {
+        "id": 8,
+        "category": "MongoDB",
+        "title": "Database Modeling with MongoDB",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Learn how to model data effectively in MongoDB.",
+        "long_description": "MongoDB is a NoSQL database known for its flexibility. This tutorial walks you through the process of database modeling in MongoDB, helping you design efficient and scalable data structures."
+    },
+    {
+        "id": 9,
+        "category": "HTML",
+        "title": "Advanced HTML5 Features",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Discover the advanced features of HTML5 for modern web development.",
+        "long_description": "HTML5 brings powerful features for building dynamic and interactive web applications. This article explores advanced HTML5 features, including Canvas, WebSockets, and more."
+    },
+    {
+        "id": 10,
+        "category": "CSS",
+        "title": "Responsive Web Design with CSS Grid",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Create responsive web layouts with CSS Grid.",
+        "long_description": "CSS Grid is a game-changer for responsive web design. Learn how to use CSS Grid to build flexible and responsive layouts for different screen sizes and devices."
+    },
+    {
+        "id": 11,
+        "category": "JavaScript",
+        "title": "Asynchronous JavaScript with Promises",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Master asynchronous programming in JavaScript with Promises.",
+        "long_description": "Asynchronous programming is essential in web development. This tutorial introduces Promises, a fundamental concept in JavaScript, to handle asynchronous tasks efficiently."
+    },
+    {
+        "id": 12,
+        "category": "React",
+        "title": "State Management in React with Redux",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Learn how to manage state in React applications using Redux.",
+        "long_description": "Managing state in large React applications can be challenging. Explore Redux, a popular state management library for React, and simplify your state management workflow."
+    },
+    {
+        "id": 13,
+        "category": "Next.js",
+        "title": "Serverless Functions in Next.js",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Build serverless functions with Next.js for dynamic web applications.",
+        "long_description": "Serverless functions in Next.js allow you to create dynamic, serverless APIs and services. This guide shows you how to leverage Next.js for serverless architecture."
+    },
+    {
+        "id": 14,
+        "category": "NodeJS",
+        "title": "File Handling in Node.js",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Learn how to work with files in Node.js applications.",
+        "long_description": "Working with files is a common task in Node.js applications. This tutorial covers file handling operations, including reading, writing, and manipulating files using Node.js."
+    },
+    {
+        "id": 15,
+        "category": "Express.js",
+        "title": "Authentication and Authorization in Express.js",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Secure your web applications with authentication and authorization in Express.js.",
+        "long_description": "Security is crucial for web applications. This article explains how to implement user authentication and authorization in Express.js to protect your routes and resources."
+    },
+    {
+        "id": 16,
+        "category": "MongoDB",
+        "title": "Mongoose: The MongoDB ODM",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Explore Mongoose, the popular Object-Document Mapping library for MongoDB.",
+        "long_description": "Mongoose simplifies MongoDB interactions in Node.js applications. This guide introduces Mongoose and demonstrates how to work with MongoDB using an ODM for efficiency and consistency."
+    },
+    {
+        "id": 17,
+        "category": "JavaScript",
+        "title": "ES6 and Beyond: Modern JavaScript Features",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Discover the modern features of JavaScript with ES6 and beyond.",
+        "long_description": "JavaScript has evolved with ES6 and subsequent versions. Learn about the latest language features, including arrow functions, destructuring, and modules, to write cleaner and more efficient code."
+    },
+    {
+        "id": 18,
+        "category": "React",
+        "title": "React Hooks: Simplifying State Management",
+        "image": "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg",
+        "short_description": "Explore React Hooks to manage state and side effects in functional components.",
+        "long_description": "React Hooks revolutionize how state and side effects are managed in functional components. This article explains the use of hooks like useState and useEffect for cleaner React code."
+    }
+]
