@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const Related = () => {
 	return (
-		<div className="w-2/3 mt-10">
+		<div className="w-full mx-auto px-3 mt-10">
 			<h3 className="text-xl font-semibold mb-3">Related Post</h3>
 			<hr />
 			<div className="flex gap-3 my-3">

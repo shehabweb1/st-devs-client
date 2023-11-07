@@ -8,24 +8,26 @@ import { useState } from "react";
 const AllBlogs = () => {
 	const [category, setCategory] = useState("");
 
-	const { isLoading, data } = useQuery({
-		queryKey: ["blog"],
+	const { isPending, error, data } = useQuery({
+		queryKey: ["blogs"],
 		queryFn: async () => {
-			const res = await fetch("./data.json");
+			const res = await fetch("http://localhost:3000/blogs");
 			return res.json();
 		},
 	});
 
-	// const products = data.filter((product) => product.brand === brand);
-
 	const categoriesSet = new Set();
 
-	if (isLoading) {
+	if (isPending) {
 		return (
 			<SkeletonTheme baseColor="#202020" highlightColor="#444">
 				<Skeleton />
 			</SkeletonTheme>
 		);
+	}
+
+	if (error) {
+		return "An error has occurred: " + error.message;
 	}
 
 	if (data) {
