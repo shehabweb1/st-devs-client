@@ -10,7 +10,7 @@ const BlogDetails = () => {
 			<div className="col-span-2 lg:col-span-3">
 				<Details data={data} />
 			</div>
-			<Related />
+			<Related data={data} />
 		</div>
 	);
 };
