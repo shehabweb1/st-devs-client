@@ -13,7 +13,7 @@ const Comments = () => {
 	const { isPending, error, data } = useQuery({
 		queryKey: ["comments"],
 		queryFn: async () => {
-			const res = await fetch("http://localhost:3000/comments");
+			const res = await fetch("https://newblogs-lovat.vercel.app/comments");
 			return res.json();
 		},
 	});
@@ -44,7 +44,7 @@ const Comments = () => {
 			message,
 			commentDate,
 		};
-		fetch("http://localhost:3000/comments", {
+		fetch("https://newblogs-lovat.vercel.app/comments", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",

@@ -23,7 +23,7 @@ const UpdateBlog = () => {
 			longDesc,
 		};
 
-		fetch(`http://localhost:3000/blogs/${_id}`, {
+		fetch(`https://newblogs-lovat.vercel.app/blogs/${_id}`, {
 			method: "PUT",
 			headers: {
 				"content-type": "application/json",
