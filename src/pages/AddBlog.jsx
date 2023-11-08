@@ -32,7 +32,7 @@ const AddBlog = () => {
 			postDate,
 		};
 
-		fetch("https://newblogs-lovat.vercel.app/blogs", {
+		fetch("https://newblogs-maves-projects.vercel.app/blogs", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",

@@ -13,7 +13,9 @@ const Comments = () => {
 	const { isPending, error, data } = useQuery({
 		queryKey: ["comments"],
 		queryFn: async () => {
-			const res = await fetch("https://newblogs-lovat.vercel.app/comments");
+			const res = await fetch(
+				"https://newblogs-maves-projects.vercel.app/comments"
+			);
 			return res.json();
 		},
 	});
@@ -44,7 +46,7 @@ const Comments = () => {
 			message,
 			commentDate,
 		};
-		fetch("https://newblogs-lovat.vercel.app/comments", {
+		fetch("https://newblogs-maves-projects.vercel.app/comments", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",

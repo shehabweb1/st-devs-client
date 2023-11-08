@@ -10,7 +10,9 @@ const Related = ({ data }) => {
 	} = useQuery({
 		queryKey: ["blogs"],
 		queryFn: async () => {
-			const res = await fetch("https://newblogs-lovat.vercel.app/blogs");
+			const res = await fetch(
+				"https://newblogs-maves-projects.vercel.app/blogs"
+			);
 			return res.json();
 		},
 	});

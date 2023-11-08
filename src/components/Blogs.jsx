@@ -24,7 +24,7 @@ const Blogs = ({ blog }) => {
 			email: user.email,
 			photo: user.photoURL,
 		};
-		fetch("https://newblogs-lovat.vercel.app/wishlist", {
+		fetch("https://newblogs-maves-projects.vercel.app/wishlist", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",

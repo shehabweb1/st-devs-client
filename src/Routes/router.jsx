@@ -31,13 +31,15 @@ const router = createBrowserRouter([
 			{
 				path: "/featuredBlogs",
 				element: <FeaturedBlogs />,
-				loader: () => fetch("https://newblogs-lovat.vercel.app/blogs"),
+				loader: () => fetch("https://newblogs-maves-projects.vercel.app/blogs"),
 			},
 			{
 				path: "/blogDetails/:id",
 				element: <BlogDetails />,
 				loader: ({ params }) =>
-					fetch(`https://newblogs-lovat.vercel.app/blogs/${params.id}`),
+					fetch(
+						`https://newblogs-maves-projects.vercel.app/blogs/${params.id}`
+					),
 			},
 			{
 				path: "/addBlog",
@@ -55,7 +57,9 @@ const router = createBrowserRouter([
 					</PrivateRoutes>
 				),
 				loader: ({ params }) =>
-					fetch(`https://newblogs-lovat.vercel.app/blogs/${params.id}`),
+					fetch(
+						`https://newblogs-maves-projects.vercel.app/blogs/${params.id}`
+					),
 			},
 			{
 				path: "/wishlist",

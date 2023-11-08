@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
 
 			if (currentUser) {
 				axios
-					.post("https://newblogs-lovat.vercel.app/jwt", loggedUser, {
+					.post("https://newblogs-maves-projects.vercel.app/jwt", loggedUser, {
 						withCredentials: true,
 					})
 					.then((res) => {
@@ -56,9 +56,13 @@ const AuthProvider = ({ children }) => {
 					});
 			} else {
 				axios
-					.post("https://newblogs-lovat.vercel.app/logout", loggedUser, {
-						withCredentials: true,
-					})
+					.post(
+						"https://newblogs-maves-projects.vercel.app/logout",
+						loggedUser,
+						{
+							withCredentials: true,
+						}
+					)
 					.then((res) => {
 						console.log(res.data);
 					});
