@@ -1,15 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserProviderContext } from "../authProvider/AuthProvider";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "./../hooks/useAxiosSecure";
 
 const Wishlist = () => {
 	const { user } = useContext(UserProviderContext);
-	const wishlistData = useLoaderData();
+	const [wishlistBlog, setWishlistBlog] = useState([]);
+	const axiosSecure = useAxiosSecure();
 
-	const filterWishlistData = wishlistData.filter((c) => c.email === user.email);
-
-	const [wishlistBlog, setWishlistBlog] = useState(filterWishlistData);
+	const url = `https://st-dev-server.vercel.app/wishlist?email=${user.email}`;
+	useEffect(() => {
+		axiosSecure.get(url).then((res) => setWishlistBlog(res.data));
+	}, [url, axiosSecure]);
 
 	const handleRemove = (id) => {
 		Swal.fire({

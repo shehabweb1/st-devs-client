@@ -63,7 +63,6 @@ const router = createBrowserRouter([
 						<Wishlist />
 					</PrivateRoutes>
 				),
-				loader: () => fetch("https://st-dev-server.vercel.app/wishlist"),
 			},
 			{
 				path: "/login",
