@@ -10,7 +10,7 @@ const Related = ({ data }) => {
 	} = useQuery({
 		queryKey: ["blogs"],
 		queryFn: async () => {
-			const res = await fetch("http://localhost:3000/blogs");
+			const res = await fetch("https://st-dev-server.vercel.app/blogs");
 			return res.json();
 		},
 	});

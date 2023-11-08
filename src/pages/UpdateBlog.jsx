@@ -1,11 +1,10 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateBlog = () => {
 	const data = useLoaderData();
-	const { id } = useParams();
 
-	const updatedData = data.find((blog) => blog.id === id);
+	const { _id, image, title, category, shortDesc,longDesc } = data;
 
 	const handleUpdateBlog = (e) => {
 		e.preventDefault();
@@ -24,8 +23,8 @@ const UpdateBlog = () => {
 			longDesc,
 		};
 
-		fetch("http://localhost:3000/blogs", {
-			method: "POST",
+		fetch(`https://st-dev-server.vercel.app/blogs/${_id}`, {
+			method: "PUT",
 			headers: {
 				"content-type": "application/json",
 			},
@@ -33,7 +32,8 @@ const UpdateBlog = () => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				if (data.insertedId) {
+				console.log(data)
+				if (data.modifiedCount > 0) {
 					Swal.fire("Successfully!", "Updated Successfully!", "success");
 				}
 			});
@@ -59,7 +59,7 @@ const UpdateBlog = () => {
 								name="title"
 								type="text"
 								autoComplete="title"
-								value={updatedData.title}
+								defaultValue={title}
 								required
 								className="block w-full rounded-md border-0 py-2 px-3  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 								placeholder="Write Blog Title"
@@ -79,7 +79,7 @@ const UpdateBlog = () => {
 								name="image"
 								type="text"
 								autoComplete="image"
-								value={updatedData.image}
+								defaultValue={image}
 								required
 								className="block w-full rounded-md border-0 py-2 px-3  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 								placeholder="Enter Image url"
@@ -99,7 +99,7 @@ const UpdateBlog = () => {
 							name="category"
 							type="text"
 							autoComplete="category"
-							value={updatedData.category}
+							defaultValue={category}
 							required
 						>
 							<option defaultValue="Select Blog Category">
@@ -127,7 +127,7 @@ const UpdateBlog = () => {
 							id="shortDesc"
 							name="shortDesc"
 							autoComplete="shortDesc"
-							value={updatedData.shortDesc}
+							defaultValue={shortDesc}
 							required
 							className="block w-full rounded-md border-0 py-2 px-3  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 							placeholder="Write a short description"
@@ -145,7 +145,7 @@ const UpdateBlog = () => {
 							id="longDesc"
 							name="longDesc"
 							autoComplete="longDesc"
-							value={updatedData.longDesc}
+							defaultValue={longDesc}
 							required
 							className="block w-full rounded-md border-0 py-2 px-3  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 							placeholder="Write a long description"

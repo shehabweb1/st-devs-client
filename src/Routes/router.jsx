@@ -36,7 +36,7 @@ const router = createBrowserRouter([
 				path: "/blogDetails/:id",
 				element: <BlogDetails />,
 				loader: ({ params }) =>
-					fetch(`http://localhost:3000/blogs/${params.id}`),
+					fetch(`https://st-dev-server.vercel.app/blogs/${params.id}`),
 			},
 			{
 				path: "/addBlog",
@@ -53,7 +53,8 @@ const router = createBrowserRouter([
 						<UpdateBlog />
 					</PrivateRoutes>
 				),
-				loader: () => fetch("http://localhost:3000/blogs"),
+				loader: ({ params }) =>
+					fetch(`https://st-dev-server.vercel.app/blogs/${params.id}`),
 			},
 			{
 				path: "/wishlist",
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
 						<Wishlist />
 					</PrivateRoutes>
 				),
-				loader: () => fetch("http://localhost:3000/wishlist"),
+				loader: () => fetch("https://st-dev-server.vercel.app/wishlist"),
 			},
 			{
 				path: "/login",

@@ -5,6 +5,7 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import OurPartners from "./../components/OurPartners";
 
 const Home = () => {
+	
 	return (
 		<>
 			<Banner />
