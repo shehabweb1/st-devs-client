@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import { UserProviderContext } from "../authProvider/AuthProvider";
 import { useContext } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const Blogs = ({ blog }) => {
 	const { user } = useContext(UserProviderContext);
@@ -42,7 +44,12 @@ const Blogs = ({ blog }) => {
 	};
 	return (
 		<div className="shadow-xl">
-			<img src={image} alt={title} className="mb-2" />
+			<PhotoProvider>
+				<PhotoView src={image}>
+					<img src={image} alt={title} className="mb-2 cursor-pointer" />
+				</PhotoView>
+			</PhotoProvider>
+
 			<div className="flex flex-col items-stretch justify-between p-2">
 				<Link to={`/blogDetails/${_id}`}>
 					<h3 className="text-2xl font-semibold hover:underline hover:underline-offset-2">
