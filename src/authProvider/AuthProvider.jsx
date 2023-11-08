@@ -46,9 +46,11 @@ const AuthProvider = ({ children }) => {
 			setUser(currentUser);
 			setLoading(false);
 
+			console.log(loggedUser);
+
 			if (currentUser) {
 				axios
-					.post("https://st-dev-server.vercel.app/jwt", loggedUser, {
+					.post("http://localhost:3000/jwt", loggedUser, {
 						withCredentials: true,
 					})
 					.then((res) => {
@@ -56,7 +58,7 @@ const AuthProvider = ({ children }) => {
 					});
 			} else {
 				axios
-					.post("https://st-dev-server.vercel.app/logout", loggedUser, {
+					.post("http://localhost:3000/logout", loggedUser, {
 						withCredentials: true,
 					})
 					.then((res) => {

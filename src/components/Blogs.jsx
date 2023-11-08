@@ -22,7 +22,7 @@ const Blogs = ({ blog }) => {
 			email: user.email,
 			photo: user.photoURL,
 		};
-		fetch("https://st-dev-server.vercel.app/wishlist", {
+		fetch("http://localhost:3000/wishlist", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",

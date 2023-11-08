@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const UpdateBlog = () => {
 	const data = useLoaderData();
 
-	const { _id, image, title, category, shortDesc,longDesc } = data;
+	const { _id, image, title, category, shortDesc, longDesc } = data;
 
 	const handleUpdateBlog = (e) => {
 		e.preventDefault();
@@ -23,7 +23,7 @@ const UpdateBlog = () => {
 			longDesc,
 		};
 
-		fetch(`https://st-dev-server.vercel.app/blogs/${_id}`, {
+		fetch(`http://localhost:3000/blogs/${_id}`, {
 			method: "PUT",
 			headers: {
 				"content-type": "application/json",
@@ -32,7 +32,7 @@ const UpdateBlog = () => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data)
+				console.log(data);
 				if (data.modifiedCount > 0) {
 					Swal.fire("Successfully!", "Updated Successfully!", "success");
 				}

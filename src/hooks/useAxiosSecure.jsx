@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { UserProviderContext } from "../authProvider/AuthProvider";
 
 const axiosSecure = axios.create({
-	baseURL: "https://st-dev-server.vercel.app",
+	baseURL: "http://localhost:3000",
 	withCredentials: true,
 });
 

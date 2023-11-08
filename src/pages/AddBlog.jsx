@@ -32,7 +32,7 @@ const AddBlog = () => {
 			postDate,
 		};
 
-		fetch("https://st-dev-server.vercel.app/blogs", {
+		fetch("http://localhost:3000/blogs", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",

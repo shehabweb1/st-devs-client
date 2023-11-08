@@ -3,12 +3,11 @@ import Blogs from "./Blogs";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useQuery } from "@tanstack/react-query";
 
-
 const RecentBlog = () => {
 	const { isPending, error, data } = useQuery({
 		queryKey: ["blogs"],
 		queryFn: async () => {
-			const res = await fetch("https://st-dev-server.vercel.app/blogs");
+			const res = await fetch("http://localhost:3000/blogs");
 			return res.json();
 		},
 	});
@@ -24,7 +23,6 @@ const RecentBlog = () => {
 	if (error) {
 		return "An error has occurred: " + error.message;
 	}
-
 
 	return (
 		<div className="py-10">

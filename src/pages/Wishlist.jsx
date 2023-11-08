@@ -9,7 +9,7 @@ const Wishlist = () => {
 	const [wishlistBlog, setWishlistBlog] = useState([]);
 	const axiosSecure = useAxiosSecure();
 
-	const url = `https://st-dev-server.vercel.app/wishlist?email=${user.email}`;
+	const url = `http://localhost:3000/wishlist?email=${user.email}`;
 	useEffect(() => {
 		axiosSecure.get(url).then((res) => setWishlistBlog(res.data));
 	}, [url, axiosSecure]);
@@ -25,7 +25,7 @@ const Wishlist = () => {
 			confirmButtonText: "Yes, delete it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`https://st-dev-server.vercel.app/wishlist/${id}`, {
+				fetch(`http://localhost:3000/wishlist/${id}`, {
 					method: "DELETE",
 				})
 					.then((res) => res.json())

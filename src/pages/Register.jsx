@@ -52,21 +52,18 @@ const Register = () => {
 
 		createAccount(email, password)
 			.then((result) => {
-				console.log(result);
-				if (result.insertedId) {
+				if (result) {
 					updateProfile(auth.currentUser, {
 						displayName: name,
 						photoURL: photo,
 					})
-						.then((result) => {
-							if (result) {
-								navigate("/");
-								Swal.fire(
-									`Thank You ${name}!`,
-									"Your account has been created successful!",
-									"success"
-								);
-							}
+						.then(() => {
+							navigate("/");
+							Swal.fire(
+								`Thank You ${name}!`,
+								"Your account has been created successful!",
+								"success"
+							);
 						})
 						.catch((error) => {
 							Swal.fire({
