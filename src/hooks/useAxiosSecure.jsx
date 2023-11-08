@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect } from "react";
-import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserProviderContext } from "../authProvider/AuthProvider";
 
 const axiosSecure = axios.create({
 	baseURL: "https://st-dev-server.vercel.app",
@@ -9,7 +10,7 @@ const axiosSecure = axios.create({
 });
 
 const useAxiosSecure = () => {
-	const { logOut } = useAuth();
+	const { logOut } = useContext(UserProviderContext);
 	const navigate = useNavigate();
 	useEffect(() => {
 		axiosSecure.interceptors.response.use(

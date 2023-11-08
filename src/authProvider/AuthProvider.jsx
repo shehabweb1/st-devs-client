@@ -9,7 +9,7 @@ import {
 	signOut,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
-import { axios } from "axios";
+import axios from "axios";
 
 export const UserProviderContext = createContext(null);
 
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
 
 			if (currentUser) {
 				axios
-					.post("http://localhost:3000/jwt", loggedUser, {
+					.post("https://st-dev-server.vercel.app/jwt", loggedUser, {
 						withCredentials: true,
 					})
 					.then((res) => {
@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
 					});
 			} else {
 				axios
-					.post("http://localhost:3000/logout", loggedUser, {
+					.post("https://st-dev-server.vercel.app/logout", loggedUser, {
 						withCredentials: true,
 					})
 					.then((res) => {

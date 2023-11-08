@@ -52,6 +52,7 @@ const Register = () => {
 
 		createAccount(email, password)
 			.then((result) => {
+				console.log(result);
 				if (result.insertedId) {
 					updateProfile(auth.currentUser, {
 						displayName: name,
