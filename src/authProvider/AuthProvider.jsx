@@ -46,8 +46,6 @@ const AuthProvider = ({ children }) => {
 			setUser(currentUser);
 			setLoading(false);
 
-			console.log(loggedUser);
-
 			if (currentUser) {
 				axios
 					.post("http://localhost:3000/jwt", loggedUser, {
