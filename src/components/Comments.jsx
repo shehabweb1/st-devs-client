@@ -4,7 +4,7 @@ import { useContext } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import Swal from "sweetalert2";
 import { UserProviderContext } from "../authProvider/AuthProvider";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Comments = () => {
 	const { user } = useContext(UserProviderContext);
@@ -92,9 +92,23 @@ const Comments = () => {
 						className="textarea textarea-bordered w-full p-2"
 						placeholder="Write your comment here"
 					></textarea>
-					<button className="btn block ml-auto bg-blue-600 hover:bg-blue-700 font-bold text-white">
-						Submit
-					</button>
+					{user ? (
+						<button
+							className="btn block ml-auto bg-blue-600 hover:bg-blue-700 font-bold text-white"
+							type="submit"
+						>
+							Submit
+						</button>
+					) : (
+						<Link to="/login">
+							<button
+								type="button"
+								className="btn block ml-auto bg-blue-600 hover:bg-blue-700 font-bold text-white"
+							>
+								Submit
+							</button>
+						</Link>
+					)}
 				</form>
 			</div>
 		</div>

@@ -62,9 +62,15 @@ const Blogs = ({ blog }) => {
 				</div>
 				<p className="my-3">{shortDesc}</p>
 				<div className="flex justify-between">
-					<button onClick={() => handleAddWishlist(blog)}>
-						<AiOutlineHeart className="text-4xl text-red-700 " />
-					</button>
+					{user ? (
+						<button onClick={() => handleAddWishlist(blog)}>
+							<AiOutlineHeart className="text-4xl text-red-700 " />
+						</button>
+					) : (
+						<Link to="/login">
+							<AiOutlineHeart className="text-4xl text-red-700 " />
+						</Link>
+					)}
 					<Link to={`/blogDetails/${_id}`}>
 						<button className="btn py-1 px-3 text-white bg-blue-600 hover:bg-blue-700">
 							Details

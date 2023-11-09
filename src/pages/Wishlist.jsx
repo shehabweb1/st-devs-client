@@ -9,7 +9,7 @@ const Wishlist = () => {
 	const [wishlistBlog, setWishlistBlog] = useState([]);
 	const axiosSecure = useAxiosSecure();
 
-	const url = `https://newblogs-maves-projects.vercel.app/wishlist?email=${user.email}`;
+	const url = `https://newblogs-maves-projects.vercel.app/wishlist?email=${user?.email}`;
 	useEffect(() => {
 		axiosSecure.get(url).then((res) => setWishlistBlog(res.data));
 	}, [url, axiosSecure]);
@@ -47,7 +47,7 @@ const Wishlist = () => {
 	return (
 		<>
 			<div className="py-10">
-				{wishlistBlog > 0 ? (
+				{wishlistBlog.length > 0 ? (
 					wishlistBlog.map((data) => (
 						<div
 							className="mb-4 grid grid-cols-4 gap-2 border shadow-lg md:mx-4"
