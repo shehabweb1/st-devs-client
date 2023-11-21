@@ -26,7 +26,7 @@ const RecentBlog = () => {
 		return "An error has occurred: " + error.message;
 	}
 
-	const recentBlogs = data.slice(0, 6);
+	const recentBlogs = data.slice(data.length - 6 , data.length);
 	return (
 		<div className="py-10">
 			<SectionHeader title="Recent Posts" />
